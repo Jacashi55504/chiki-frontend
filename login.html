@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>SkillSwap - Login y Registro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --azul-claro: #00D9FF;
+      --verde-lima: #C1FF72;
+      --azul-petroleo: #3296A8;
+      --blanco: #FFFFFF;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      margin: 0;
+    }
+
+    .navbar {
+      background-color: var(--azul-petroleo);
+      color: var(--blanco);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+    }
+
+    .navbar a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .auth-container {
+      max-width: 400px;
+      margin: 100px auto;
+      background-color: #f5f5f5;
+      padding: 30px;
+      border-radius: 10px;
+      border: 2px solid var(--azul-claro);
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    .tabs button {
+      flex: 1;
+      padding: 10px;
+      background-color: var(--azul-petroleo);
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .tabs button.active {
+      background-color: var(--azul-claro);
+    }
+
+    .auth-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .auth-form input,
+    .auth-form button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .auth-form button {
+      background-color: var(--azul-claro);
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .auth-form button:hover {
+      background-color: var(--azul-petroleo);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .footer {
+      background-color: #f2f2f2;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      border-top: 1px solid #ddd;
+      margin-top: 60px;
+    }
+
+    .footer div {
+      margin: 10px 20px;
+    }
+
+    .footer h4 {
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    .footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer li {
+      margin-bottom: 8px;
+      color: #444;
+    }
+
+    .social-icons a {
+      font-size: 1.4em;
+      margin-right: 10px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <img src="assets/logo.png" alt="SkillSwap Logo" style="height: 40px;">
+    <div id="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="publish.html">Publicar</a>
+      <a href="sub.html">Subscripciones</a>
+      <!-- Sesión se genera con JS -->
+    </div>
+  </nav>
+
+  <!-- Formulario Login / Registro -->
+  <div class="auth-container">
+    <div class="tabs">
+      <button id="btn-login" class="active">Iniciar Sesión</button>
+      <button id="btn-register">Registrarse</button>
+    </div>
+
+    <!-- Login -->
+    <form id="login-form" class="auth-form">
+      <input type="email" id="login-email" placeholder="Correo" required>
+      <input type="password" id="login-password" placeholder="Contraseña" required>
+      <button type="submit">Entrar</button>
+    </form>
+
+    <!-- Registro -->
+    <form id="register-form" class="auth-form hidden">
+      <input type="text" id="reg-name" placeholder="Nombre completo" required>
+      <input type="email" id="reg-email" placeholder="Correo" required>
+      <input type="password" id="reg-password" placeholder="Contraseña" required>
+      <input type="text" id="reg-canTeach" placeholder="¿Qué puedes enseñar? (coma separada)">
+      <input type="text" id="reg-wantToLearn" placeholder="¿Qué deseas aprender? (coma separada)">
+      <button type="submit">Registrarse</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div>
+      <h4>Legal</h4>
+      <ul>
+        <li>Privacidad</li>
+        <li>Política de datos</li>
+        <li>Términos</li>
+        <li>Cookies</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Proyectos</h4>
+      <ul>
+        <li>Colaboraciones</li>
+        <li>Casos de éxito</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Social</h4>
+      <div class="social-icons">
+        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>        
+      </div>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <ul>
+        <li>Preguntas frecuentes</li>
+        <li>Contáctanos</li>
+        <li>Soporte</li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/login.js"></script>
+
+  <!-- JS de sesión dinámica -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navContainer = document.getElementById('nav-links');
+      const sessionButton = document.createElement('a');
+
+      if (localStorage.getItem('userId')) {
+        sessionButton.href = "#";
+        sessionButton.textContent = "Cerrar Sesión";
+        sessionButton.addEventListener('click', () => {
+          localStorage.clear();
+          location.reload();
+        });
+      } else {
+        sessionButton.href = "login.html";
+        sessionButton.textContent = "Iniciar Sesión";
+      }
+
+      navContainer.appendChild(sessionButton);
+
+      // Toggle Login/Registro
+      const btnLogin = document.getElementById('btn-login');
+      const btnRegister = document.getElementById('btn-register');
+      const loginForm = document.getElementById('login-form');
+      const registerForm = document.getElementById('register-form');
+
+      btnLogin.addEventListener('click', () => {
+        btnLogin.classList.add('active');
+        btnRegister.classList.remove('active');
+        loginForm.classList.remove('hidden');
+        registerForm.classList.add('hidden');
+      });
+
+      btnRegister.addEventListener('click', () => {
+        btnRegister.classList.add('active');
+        btnLogin.classList.remove('active');
+        registerForm.classList.remove('hidden');
+        loginForm.classList.add('hidden');
+      });
+    });
+  </script>
+</body>
+</html>

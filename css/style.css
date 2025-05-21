@@ -1,0 +1,86 @@
+/* Estilos Generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FFFFFF;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    align-items: center;
+    background-color: #3296A8;
+    padding: 10px 20px;
+  }
+  
+  .logo {
+    height: 40px;
+    margin-right: auto;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .nav-links li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* Contenedor de Autenticación */
+  .auth-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #C1FF72;
+    border-radius: 10px;
+  }
+  
+  /* Formularios */
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .auth-form input, .auth-form button {
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .auth-form button {
+    background: #00D9FF;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Pestañas */
+  .tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .tabs button {
+    padding: 10px;
+    border: none;
+    background: #3296A8;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    flex: 1;
+  }
+  
+  .tabs button.active {
+    background: #00D9FF;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  

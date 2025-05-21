@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Publicar en SkillSwap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --azul-claro: #00D9FF;
+      --verde-lima: #C1FF72;
+      --azul-petroleo: #3296A8;
+      --blanco: #FFFFFF;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+    }
+
+    .navbar {
+      background-color: var(--azul-petroleo);
+      color: var(--blanco);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+    }
+
+    .navbar a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 80px auto;
+      background-color: #f5f5f5;
+      padding: 30px;
+      border-radius: 10px;
+      border: 2px solid var(--azul-claro);
+    }
+
+    h2 {
+      color: var(--azul-petroleo);
+      text-align: center;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: var(--azul-claro);
+      color: white;
+      padding: 12px;
+      border: none;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: var(--azul-petroleo);
+    }
+
+    .footer {
+      background-color: #f2f2f2;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      border-top: 1px solid #ddd;
+      margin-top: 60px;
+    }
+
+    .footer div {
+      margin: 10px 20px;
+    }
+
+    .footer h4 {
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    .footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer li {
+      margin-bottom: 8px;
+      color: #444;
+    }
+
+    .social-icons a {
+      font-size: 1.4em;
+      margin-right: 10px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <img src="assets/logo.png" alt="SkillSwap Logo" style="height: 40px;">
+    <div id="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="publish.html">Publicar</a>
+      <a href="sub.html">Subscripciones</a>
+      <!-- Sesión se agrega con JS -->
+    </div>
+  </nav>
+
+  <div class="form-container">
+    <h2>Crear Publicación</h2>
+    <form id="postForm">
+      <label for="title">Título</label>
+      <input type="text" id="title" required>
+
+      <label for="description">Descripción</label>
+      <textarea id="description" rows="4"></textarea>
+
+      <label for="type">Tipo</label>
+      <select id="type" required>
+        <option value="">Selecciona una opción</option>
+        <option value="ofrezco">Ofrezco</option>
+        <option value="busco">Busco</option>
+      </select>
+
+      <label for="skills">Habilidades (separadas por coma)</label>
+      <input type="text" id="skills" required>
+
+      <label for="imageUrl">URL de imagen</label>
+      <input type="url" id="imageUrl" placeholder="https://...">
+
+      <button type="submit">Publicar</button>
+    </form>
+  </div>
+
+  <footer class="footer">
+    <div>
+      <h4>Legal</h4>
+      <ul>
+        <li>Privacidad</li>
+        <li>Política de datos</li>
+        <li>Términos</li>
+        <li>Cookies</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Proyectos</h4>
+      <ul>
+        <li>Colaboraciones</li>
+        <li>Casos de éxito</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Social</h4>
+      <div class="social-icons">
+        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>        
+      </div>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <ul>
+        <li>Preguntas frecuentes</li>
+        <li>Contáctanos</li>
+        <li>Soporte</li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/publish.js"></script>
+
+  <!-- JS de sesión -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navContainer = document.getElementById('nav-links');
+      const sessionButton = document.createElement('a');
+
+      if (localStorage.getItem('userId')) {
+        sessionButton.href = "#";
+        sessionButton.textContent = "Cerrar Sesión";
+        sessionButton.addEventListener('click', () => {
+          localStorage.clear();
+          location.reload();
+        });
+      } else {
+        sessionButton.href = "login.html";
+        sessionButton.textContent = "Iniciar Sesión";
+      }
+
+      navContainer.appendChild(sessionButton);
+    });
+  </script>
+</body>
+</html>

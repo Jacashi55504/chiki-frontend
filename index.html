@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillSwap - Conecta y Aprende</title>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2099/2099191.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --azul-claro: #00D9FF;
+      --verde-lima: #C1FF72;
+      --azul-petroleo: #3296A8;
+      --blanco: #FFFFFF;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff;
+    }
+
+    .navbar {
+      background-color: var(--azul-petroleo);
+      color: var(--blanco);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+    }
+
+    .landing-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 0px;
+      border: none;
+      border-radius: 0;
+    }
+
+    .navbar img {
+      height: 40px;
+    }
+
+    .navbar a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      background-color: var(--verde-lima);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5em;
+      color: #333;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    .post-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px;
+      gap: 30px;
+    }
+
+    .footer {
+      background-color: #f2f2f2;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      border-top: 10px solid #ffffff;
+    }
+
+    .footer div {
+      margin: 10px 20px;
+    }
+
+    .footer h4 {
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    .footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer li {
+      margin-bottom: 8px;
+      color: #444;
+    }
+
+    .social-icons a {
+      font-size: 1.4em;
+      margin-right: 10px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <img src="assets/logo.png" alt="SkillSwap Logo">
+    <div id="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="publish.html">Publicar</a>
+      <a href="sub.html">Subscripciones</a>
+      <!-- El enlace de sesión se genera por JavaScript -->
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Intercambia habilidades con personas reales</h1>
+    <p>Conecta con quienes saben lo que tú quieres aprender y ofrece lo que tú dominas</p>
+  </section>
+
+  <section class="landing-image">
+    <img src="assets/habilidades.jpg" alt="Personas compartiendo habilidades">
+  </section>
+
+  <section id="post-list" class="post-list">
+    <!-- Cards generadas por JS -->
+  </section>
+
+  <footer class="footer">
+    <div>
+      <h4>Legal</h4>
+      <ul>
+        <li>Privacidad</li>
+        <li>Política de datos</li>
+        <li>Términos</li>
+        <li>Cookies</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Proyectos</h4>
+      <ul>
+        <li>Colaboraciones</li>
+        <li>Casos de éxito</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Social</h4>
+      <div class="social-icons">
+        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>        
+      </div>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <ul>
+        <li>Preguntas frecuentes</li>
+        <li>Contáctanos</li>
+        <li>Soporte</li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <!-- Script para gestionar sesión -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navContainer = document.getElementById('nav-links');
+      const sessionButton = document.createElement('a');
+
+      if (localStorage.getItem('userId')) {
+        sessionButton.href = "#";
+        sessionButton.textContent = "Cerrar Sesión";
+        sessionButton.addEventListener('click', () => {
+          localStorage.clear();
+          location.reload();
+        });
+      } else {
+        sessionButton.href = "login.html";
+        sessionButton.textContent = "Iniciar Sesión";
+      }
+
+      navContainer.appendChild(sessionButton);
+    });
+  </script>
+</body>
+</html>
