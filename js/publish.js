@@ -14,7 +14,7 @@ document.getElementById('postForm').addEventListener('submit', async function (e
     }
   
     try {
-      const res = await fetch('http://localhost:8000/api/posts', {
+      const res = await fetch('https://skillswap-backend-cva0aacxb3bdb9au.mexicocentral-01.azurewebsites.net/api/posts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title, description, type, skills, imageUrl, userId })

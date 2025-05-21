@@ -24,7 +24,7 @@ loginForm.addEventListener('submit', async (e) => {
   const password = document.getElementById('login-password').value;
 
   try {
-    const res = await fetch('http://localhost:8000/api/users/login', {
+    const res = await fetch('https://skillswap-backend-cva0aacxb3bdb9au.mexicocentral-01.azurewebsites.net/api/users/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })

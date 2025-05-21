@@ -2,7 +2,7 @@ const postList = document.getElementById('post-list');
 
 async function cargarPublicaciones() {
   try {
-    const res = await fetch('http://localhost:8000/api/posts');
+    const res = await fetch('https://skillswap-backend-cva0aacxb3bdb9au.mexicocentral-01.azurewebsites.net/api/posts');
     const posts = await res.json();
 
     if (res.ok && posts.length > 0) {
